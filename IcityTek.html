@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Future-Ready Smart City & IoT Solutions for Urban Innovation - iCityTek" />
+  <meta name="author" content="Nqumakhwe Athenkosi" />
+  <title>iCityTek - Smart City & IoT Solutions</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      font-size: 1.1rem;
+      color: #333;
+      background-color: #f9f9f9;
+    }
+
+    body.dark-mode {
+      background-image: linear-gradient(black);
+      color: violet;
+    }
+
+    body.dark-mode header,
+    body.dark-mode .image-box,
+    body.dark-mode .extra-info,
+    body.dark-mode .footer,
+    body.dark-mode .footer-info {
+      color: violet;
+    }
+
+    body.dark-mode .button {
+      background-color: #005fa3;
+      color: lightgreen;
+    }
+
+    body.dark-mode .button:hover {
+      background-color: #0077cc;
+      color: violet;
+    }
+
+
+    header {
+  background: #f0f0f0;
+  color: #1a1a1a;
+  padding: 20px 40px; /* add some horizontal padding */
+  position: relative;
+  border-bottom: 1px solid #ccc;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* push nav to right */
+  gap: 20px;
+}
+
+header nav a {
+  margin: 0 10px;
+  padding: 5px 12px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #1a1a1a;
+  text-decoration: none;
+  border: 2px solid transparent;
+  border-radius: 12px; /* more rounded corners */
+  display: inline-block;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+header nav a:hover {
+  color: orange;
+  background-color: #333;
+  border-color: orange;
+}
+
+
+    header img {
+      position: absolute;
+      top: 10px;
+      left: 20px;
+      height: 60px;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+    }
+
+    header p {
+      margin-top: 5px;
+      font-weight: 500;
+    }
+
+    .section {
+      padding: 40px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .section h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #1a1a1a;
+      font-weight: 700;
+      font-size: 2rem;
+    }
+
+    .image-boxes {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .image-box {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      padding: 20px;
+      transition: transform 0.3s;
+    }
+
+    .image-box:hover {
+      transform: translateY(-5px);
+    }
+
+    .image-box img {
+      width: 90px;
+      height: 90px;
+      margin: 0 auto 15px;
+      display: block;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+.image-boxes .image-box img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+    .image-box h3 {
+      font-size: 1.2rem;
+      font-weight: 900;
+      color: #0077cc;
+      text-align: center;
+    }
+
+    .image-box ul {
+      list-style-type: disc;
+      padding-left: 20px;
+      margin-bottom: 15px;
+      color: #444;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 10px;
+      background: #0077cc;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 5px;
+      text-decoration: none;
+      cursor: pointer;
+      font-weight: 600;
+      border: none;
+    }
+
+    .button:hover {
+      background: #005fa3;
+    }
+
+    .hover-box:hover {
+      background: #f0e6ff;
+      border-color: #7f00ff;
+    }
+
+    .hover-box:hover h3 {
+      color: #7f00ff;
+    }
+
+    .toggle-button {
+      display: block;
+      margin: 30px auto;
+      padding: 10px 20px;
+      background: #333;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .toggle-button:hover {
+      background: #0077cc;
+    }
+
+    .footer {
+      background: grey;
+      color: white;
+      padding: 40px 20px;
+    }
+
+    .footer .footer-columns {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .footer h4 {
+      margin-bottom: 10px;
+    }
+
+    .footer ul {
+      list-style: none;
+    }
+
+    .footer ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer ul li button {
+      background: none;
+      border: none;
+      color: #66ccff;
+      text-align: left;
+      padding: 0;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .footer ul li button:hover {
+      text-decoration: underline;
+    }
+
+    .footer ul li .footer-info {
+      display: none;
+      margin-top: 10px;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: #ccc;
+      background: #1a1a1a;
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    .footer ul li .footer-info.show {
+      display: block;
+    }
+
+    .footer a {
+      color: #66ccff;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    .copyright {
+      text-align: center;
+      padding: 15px 0;
+      background: #111;
+      font-size: 0.9rem;
+    }
+
+    .image-box.hover-box:hover {
+      border: 2px solid violet;
+    }
+
+    .extra-info {
+      margin-top: 15px;
+      background: #eef2f5;
+      padding: 15px;
+      border-left: 5px solid #0077cc;
+      display: none;
+      font-size: 1rem;
+      color: #222;
+      border-radius: 0 8px 8px 0;
+      line-height: 1.5;
+    }
+
+    .extra-info img {
+      margin-top: 12px;
+      border-radius: 8px;
+    }
+  </style>
+
+  <script>
+    function toggleInfo(id) {
+      const box = document.getElementById(id);
+      if (box.style.display === 'block') {
+        box.style.display = 'none';
+      } else {
+        box.style.display = 'block';
+      }
+    }
+
+    function toggleFooterInfo(id) {
+      const all = document.querySelectorAll('.footer-info');
+      all.forEach(el => {
+        if (el.id !== id) {
+          el.classList.remove('show');
+        }
+      });
+      const target = document.getElementById(id);
+      if (target) target.classList.toggle('show');
+    }
+  </script>
+
+</head>
+
+<body>
+  <header class="site-header">
+  <div class="container">
+    <a href="https://icitytek.com/" class="logo-link">
+      <img src="https://icitytek.com/wp-content/uploads/2023/10/icity-1.png" alt="iCityTek Logo" class="logo" />
+    </a>
+    <nav class="site-nav">
+      <a href="https://icitytek.com/infrastructure-connectivity/" target="_blank">Infrastructure & Connectivity</a>
+      <a href="https://icitytek.com/urban-management-public-services/" target="_blank">Urban Management & Public Services</a>
+      <a href="https://icitytek.com/sustainability-safety/" target="_blank">Sustainability & Safety</a>
+      <a href="https://icitytek.com/career/" target="_blank">Career</a>
+      <a href="https://icitytek.com/about-us/" target="_blank">About us</a>
+      <a href="https://icitytek.com/contact-us/" target="_blank">Contact Us</a>
+    </nav>
+  </div>
+</header>
+
+
+
+
+
+<section style="width: 100vw; margin: 0; padding: 80px 0; box-sizing: border-box;">
+  <div style="
+    background-image: url('https://bernardmarr.com/img/What%20Is%20A%20Smart%20City.png');
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    min-height: 300px;
+    padding: 60px 40px;
+    color: white;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  ">
+    <div style="
+      max-width: 900px;
+      text-align: center;
+    ">
+      <h1 style="font-size: 2.5rem; margin-bottom: 20px; color: white;">
+        Enabling Urban Innovation with IoT Technology
+      </h1>
+
+      <p style="font-size: 1.2rem; line-height: 1.7; margin-bottom: 30px;">
+        iCityTek integrates innovative technologies—IoT, automation, connectivity, and analytics—to build safer, more efficient, and sustainable urban environments across North America.
+      </p>
+
+      <a href="https://icitytek.com/contact-us/" target="_blank" style="
+        background-color: #0077cc;
+        color: white;
+        padding: 12px 24px;
+        font-size: 1rem;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 5px;
+        display: inline-block;
+      ">
+        Contact Us
+      </a>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+<section class="section" style="padding-top: 0;">
+  <div style="
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+  ">
+
+    <!-- Left: Image (40%) -->
+    <div style="
+      flex: 0 0 40%;
+      max-width: 40%;
+      padding: 20px;
+      box-sizing: border-box;
+    ">
+      <img src="https://icitytek.com/wp-content/uploads/2025/06/home-section-1.png"
+        alt="Smart City Integration"
+        style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);" />
+    </div>
+
+    <!-- Right: Text (60%) -->
+    <div class="image-box" style="
+      flex: 0 0 60%;
+      max-width: 60%;
+      padding: 20px;
+      box-sizing: border-box;
+    ">
+      <h2 style="font-size: 2rem; margin-bottom: 15px;">
+        Shaping Smarter Cities: Scalable Solutions for a Connected Urban Future
+      </h2>
+      <p style="font-size: 1.1rem; line-height: 1.7;">
+        At <strong>iCityTek</strong>, we don’t just connect devices—we connect cities to their future. As a leader in smart city technology, we provide comprehensive, scalable solutions that empower municipalities, utilities, and urban developers to improve infrastructure, safety, and sustainability.
+        <br><br>
+        From intelligent transportation systems to real-time energy monitoring, our technologies drive efficiency, reduce operational costs, and elevate quality of life for residents. With a strong foundation in engineering, digital integration, and urban innovation, we help transform how cities function—from the ground up.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+
+  <section class="section">
+    <h2>Smart Infrastructure & Connectivity</h2>
+    <div class="image-boxes">
+      <div class="image-box">
+        <img src="https://icitytek.com/wp-content/uploads/2025/05/Untitled-design-3.png" alt="Infrastructure" />
+        <h3>Infrastructure & Connectivity</h3>
+        <ul>
+          <li><b>IoT Sensors</b> – Data-driven monitoring</li>
+          <li><b>5G Connectivity</b> – High-speed communication</li>
+          <li><b>Smart Street Lighting</b> – Motion sensor lighting</li>
+          <li><b>Smart Parking Systems</b> – Digital space management</li>
+          <li><b>Fiber Optic Networks</b> – Reliable data transmission</li><br><br>
+
+        </ul>
+        <a href="https://icitytek.com/infrastructure-connectivity/">Learn More</a>
+
+     </div>
+
+
+      <div class="image-box">
+        <img src="https://icitytek.com/wp-content/uploads/2025/05/urban-management.png" alt="Urban Management" />
+        <h3>Urban Management & Public Services</h3>
+        <ul>
+          <li><b>Waste Management</b> – Fill-level sensors</li>
+          <li><b>Air Quality Monitoring</b> – Real-time pollution tracking</li>
+          <li><b>Smart Metering</b> – Accurate utility billing</li>
+          <li><b>City Surveillance</b> – AI-powered safety</li><br><br><br>
+
+        </ul>
+        <a href="https://icitytek.com/urban-management-public-services/">Learn More</a>
+       
+              </div>
+
+      <div class="image-box">
+        <img src="https://icitytek.com/wp-content/uploads/2025/05/Sustainablity-and-safety-e1747914887642.jpg" alt="Sustainability" />
+        <h3>Sustainability & Safety</h3>
+        <ul>
+          <li><b>Smart Buildings</b> – Automated efficiency</li><br><br>
+          <li><b>Disaster Response</b> – Real-time alerts</li><br><br>
+          <li><b>Urban Cybersecurity</b> – Secure infrastructure</li><br><br>
+        </ul>
+        <a href="https://icitytek.com/sustainability-safety/">Learn More</a>
+
+
+
+    </div>
+
+
+
+  </section>
+
+
+
+
+<section class="section" style="padding-top: 0;">
+  <div style="
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;  /* stretch children height */
+    justify-content: center;
+    margin-top: 20px;
+  ">
+
+    <!-- Left: Text Box (60%) -->
+    <div class="image-box" style="
+      flex: 0 0 60%;
+      max-width: 60%;
+      padding: 20px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    ">
+      <h2 style="font-size: 2rem; margin-bottom: 15px;">
+        Why Choose ICity Tek?
+      </h2>
+      <p style="font-size: 1.1rem; line-height: 1.7;">
+        <strong>Smart City Focus:</strong> We provide more than just IoT—we integrate diverse technologies to solve real-world urban challenges.<br><br>
+        <strong>Customization at Scale:</strong> Our solutions are tailored for municipalities, utilities, public sector bodies, and infrastructure operators.<br><br>
+        <strong>Continuous Innovation:</strong> Backed by ongoing R&D, we stay ahead of industry trends to future-proof your investment.<br><br>
+        <strong>B2B-Centric Support:</strong> From deployment to optimization, our technical experts deliver hands-on support and strategic guidance.
+        <br><br>
+        With a growing B2B presence across North America, we lead in areas such as technology innovation, product reliability, and customer-focused support. Through cutting-edge research, continuous product development, a strict quality assurance process, and expert guidance, we help businesses streamline operations and unlock the full potential of smart, scalable smart city solutions.
+      </p>
+    </div>
+
+    <!-- Right: Image (40%) -->
+    <div style="
+      flex: 0 0 40%;
+      max-width: 40%;
+      padding: 20px;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center; /* center image vertically */
+    ">
+      <img src="https://icitytek.com/wp-content/uploads/2025/06/icity-mid-section.jpg"
+        alt="Why Choose ICity Tek"
+        style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);" />
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <section class="section">
+  <h2>Who We Serve</h2>
+  <div class="image-boxes" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: flex-start;">
+    
+    <!-- Box -->
+    <div class="image-box" style="display: flex; align-items: center; gap: 15px; padding: 10px 15px; border: 1px solid #ddd; border-radius: 8px; background: #fff; width: fit-content;">
+      <img src="https://icitytek.com/wp-content/uploads/2023/10/iot5-1-150x150.webp" alt="Municipal" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
+      <h3 style="margin: 0; font-size: 1rem;">Municipal Governments</h3>
+    </div>
+
+    <div class="image-box" style="display: flex; align-items: center; gap: 15px; padding: 10px 15px; border: 1px solid #ddd; border-radius: 8px; background: #fff; width: fit-content;">
+      <img src="https://icitytek.com/wp-content/uploads/2025/05/Picture2-150x150.png" alt="Utilities" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
+      <h3 style="margin: 0; font-size: 1rem;">Utility Providers</h3>
+    </div>
+
+    <div class="image-box" style="display: flex; align-items: center; gap: 15px; padding: 10px 15px; border: 1px solid #ddd; border-radius: 8px; background: #fff; width: fit-content;">
+      <img src="https://icitytek.com/wp-content/uploads/2025/05/green_city_filipe_frazao_shutterstock_584605-150x150.jpg" alt="Campus Managers" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
+      <h3 style="margin: 0; font-size: 1rem;">Smart Campus Managers</h3>
+    </div>
+
+    <div class="image-box" style="display: flex; align-items: center; gap: 15px; padding: 10px 15px; border: 1px solid #ddd; border-radius: 8px; background: #fff; width: fit-content;">
+      <img src="https://icitytek.com/wp-content/uploads/2025/05/shutterstock_1606190653-150x150.jpg" alt="Environmental Agencies" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
+      <h3 style="margin: 0; font-size: 1rem;">Environmental Agencies</h3>
+    </div>
+
+    <div class="image-box" style="display: flex; align-items: center; gap: 15px; padding: 10px 15px; border: 1px solid #ddd; border-radius: 8px; background: #fff; width: fit-content;">
+      <img src="https://icitytek.com/wp-content/uploads/2025/05/rear-waist-view-male-metropolitan-260nw-1353896030-e1749813422394-150x150.webp" alt="Emergency Services" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
+      <h3 style="margin: 0; font-size: 1rem;">Public Safety Services</h3>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+<section style="
+  background-color: #fff; /* white background */
+  padding: 30px 20px;
+  border-radius: 15px; /* increased corner rounding */
+  width: calc(100% - 4cm);
+  margin: 0 auto;
+  font-family: 'Roboto', sans-serif;
+  color: #3a2f1f;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+">
+  <h2 style="font-size: 2rem; margin-bottom: 20px;">
+    Trusted Partner in Smart City Advancement
+  </h2>
+  <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 20px;">
+    Headquartered in Boston, MA–NH, <strong>iCity Tek</strong> has quickly earned its reputation as a trusted provider of reliable, high-performance technology for smart city development across North America.
+  </p>
+  <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 20px;">
+    We’re proud to be recognized as an:
+  </p>
+  <ul style="font-size: 1.1rem; line-height: 1.6; margin-left: 20px; margin-bottom: 20px;">
+    <li>“IoT Expert” and “Gold Partner” by GAO Tek Inc., a global top 10 B2B technology supplier</li>
+    <li>Premier Partner of GAO RFID Inc., a leader in BLE & RFID systems</li>
+  </ul>
+  <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 20px;">
+    We’re also a proud sponsor of TekSummit, hosted by our global partners.
+  </p>
+  <p style="font-size: 1.1rem; line-height: 1.6;">
+    Learn more at: 
+    <a href="https://gaotek.com/teksummit" target="_blank" style="color: #5a3e1b; text-decoration: underline; font-weight: 600;">GAO Tek TekSummit</a> | 
+    <a href="https://gaorfid.com/teksummit" target="_blank" style="color: #5a3e1b; text-decoration: underline; font-weight: 600;">GAO RFID TekSummit</a>
+  </p>
+</section>
+
+
+
+
+
+
+
+
+<section style="position: relative; width: 100vw; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; font-family: 'Roboto', sans-serif; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+
+  <!-- Background image -->
+  <div style="
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqxLAj4ukWhGqZFVgUxiS7PJ9g2YuRpLsJe1iIAaSEBC6_NrwfmXZ7OZ4jon4LT-dt_-Q&usqp=CAU');
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.6);
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 0;
+  "></div>
+
+  <!-- Text content container with max width -->
+  <div style="
+    position: relative;
+    color: white;
+    padding: 60px 40px;
+    z-index: 1;
+    max-width: 900px;
+    margin: auto;
+    text-align: left;
+  ">
+    <h2 style="font-size: 2.5rem; margin-bottom: 20px; font-weight: 700; margin-left: 0;">
+      Let’s Build Smarter Cities Together
+    </h2>
+    <p style="font-size: 1.2rem; line-height: 1.6; margin-bottom: 30px; margin-left: 0;">
+      Have questions about our smart city solutions or want to explore a partnership? We’re here to help. Reach out to our team for tailored support, product details, technical guidance, or to discuss how our scalable technologies can fit your goals.
+    </p>
+    <a href="mailto:sales@icitytek.com" style="
+      display: inline-block;
+      background-color: #0077cc;
+      color: white;
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    " onmouseover="this.style.backgroundColor='#005fa3'" onmouseout="this.style.backgroundColor='#0077cc'">
+      Contact Us
+    </a>
+  </div>
+
+</section>
+
+
+
+  
+
+
+
+  <footer class="footer">
+    <div class="footer-columns">
+      <div>
+        <h4>iCityTek</h4>
+        <p>iCityTek is a North American-based technology firm committed to reshaping urban life. We provide cities and municipalities with cutting-edge digital tools that streamline public services, reduce environmental impact, and strengthen urban infrastructure. From AI-powered traffic systems to real-time environmental monitoring, our integrated platforms turn data into action, ensuring that smart cities are not just visionary—but achievable.</p>
+      </div>
+      <div>
+        <h4>Important Links</h4>
+        <ul>
+          <li>
+            <button onclick="toggleFooterInfo('aboutUsInfo')">About Us</button>
+            <div id="aboutUsInfo" class="footer-info">iCityTek is a North American technology company specializing in smart city solutions powered by IoT, AI, and automation. We help cities operate smarter, cleaner, and more connected.</div>
+          </li>
+          <li>
+            <button onclick="toggleFooterInfo('contactUsInfo')">Contact Us</button>
+            <div id="contactUsInfo" class="footer-info">Headquartered in Boston, Massachusetts. For inquiries, partnerships, or support, reach us via <a href="mailto:sales@icitytek.com">sales@icitytek.com</a>.</div>
+          </li>
+          <li>
+            <button onclick="toggleFooterInfo('careersInfo')">Careers</button>
+            <div id="careersInfo" class="footer-info">Explore career opportunities where technology meets urban transformation. Visit our <a href="https://icitytek.com/career/" target="_blank">careers page</a> to apply.</div>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h4>Our Solutions</h4>
+        <ul>
+          <li>
+            <button onclick="toggleFooterInfo('infrastructureInfo')">Infrastructure & Connectivity</button>
+            <div id="infrastructureInfo" class="footer-info">Enabling smarter cities through IoT devices, real-time data, and reliable communication networks like 5G and fiber optics.</div>
+          </li>
+          <li>
+            <button onclick="toggleFooterInfo('urbanMgmtInfo')">Urban Management</button>
+            <div id="urbanMgmtInfo" class="footer-info">From waste optimization to smart metering, we streamline daily operations using intelligent monitoring tools.</div>
+          </li>
+          <li>
+            <button onclick="toggleFooterInfo('sustainabilityInfo')">Sustainability & Safety</button>
+            <div id="sustainabilityInfo" class="footer-info">We secure cities with AI surveillance, energy-efficient buildings, and disaster-ready alert systems.</div>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h4>Find Us</h4>
+        <p>201 Washington Street<br>Boston, MA 02108<br><br>Email: <a href="mailto:sales@icitytek.com">sales@icitytek.com</a></p>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2949.240259511602!2d-71.0595672845466!3d42.357778979186454!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e37087f2f40167%3A0xf98cf6f4f55b0ae5!2s201%20Washington%20St%2C%20Boston%2C%20MA%2002108%2C%20USA!5e0!3m2!1sen!2sza!4v1691184480870!5m2!1sen!2sza"
+          width="100%" height="180" style="border:0; border-radius: 8px;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+  </footer>
+
+  <div class="copyright">
+    &copy; 2025 iCityTek. All rights reserved.
+  </div>
+
+  <script>
+    function toggleFooterInfo(id) {
+      const all = document.querySelectorAll('.footer-info');
+      all.forEach(el => {
+        if (el.id !== id) {
+          el.classList.remove('show');
+        }
+      });
+      const target = document.getElementById(id);
+      if (target) target.classList.toggle('show');
+    }
+  </script>
+</body>
+
+</html>
